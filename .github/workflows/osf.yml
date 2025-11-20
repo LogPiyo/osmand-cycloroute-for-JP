@@ -1,0 +1,33 @@
+name: Producing .osf
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  creatingosf:
+    name: Try
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Move files
+        run: |
+          mkdir BUILD && cd BUILD
+          mkdir -p rendering
+          cp ../ChariRoute.render.xml rendering
+          cp ../export/items.json .
+
+      - name: Make zip
+        run: |
+          cd BUILD
+          zip -r ChariRoute.osf .
+
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ChariRoute
+          path: BUILD/ChariRoute.osf
+

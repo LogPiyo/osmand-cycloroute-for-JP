@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "type": "FILE",
+      "file": "\/rendering\/ChariRoute.render.xml",
+      "subtype": "rendering_style"
+    }
+  ]
+}
